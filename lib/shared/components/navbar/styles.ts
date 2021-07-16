@@ -29,7 +29,7 @@ export const Button = styled(RectButton) <IButtonProps>`
   justify-content: center;
   align-items: center;
   border-radius: 30px;
-  background: ${({ color, active }) => (active ? transparentize(0.85, color) : 'transparent')};
+  background: ${({ theme, color, active }) => (active ? transparentize(0.85, color) : theme.colors.navbarBackground)};
 `;
 
 export const Label = styled.Text<ILabelProps>`
