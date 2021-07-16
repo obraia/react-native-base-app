@@ -1,10 +1,13 @@
 import React from "react";
+import { useNavigation } from "@react-navigation/native";
 import { BellOutlined, InfoOutlined, PaletteOutlined } from "../../components/icons";
 import { Item } from "../../components/item";
 import { Profile } from "../../components/profile";
 import { Container, Group } from "./styles";
 
 const Settings = () => {
+
+  const navigation = useNavigation();
 
   const items = [
     { title: "Notifications", icon: BellOutlined, page: "Notifications", color: "#FF7300" },
@@ -27,7 +30,8 @@ const Settings = () => {
             page={item.page}
             icon={item.icon}
             color={item.color}
-            border={index !== 0} />
+            border={index !== 0}
+            onPress={() => navigation.navigate(item.page)} />
         ))}
       </Group>
 

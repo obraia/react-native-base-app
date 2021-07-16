@@ -7,12 +7,13 @@ interface IProps {
   icon: ({ color }: { color: string }) => JSX.Element;
   color: string;
   border?: boolean;
+  onPress: () => void;
 }
 
 const Item = (props: IProps) => {
   return (
     <ButtonContainer border={props.border}>
-      <Button>
+      <Button onPress={props.onPress}>
         <IconContainer color={props.color}>
           <props.icon color={props.color} />
         </IconContainer>
