@@ -5,7 +5,7 @@ interface IProps {
   color?: string;
 }
 
-const BellOutlined = ({ color }: IProps) => {
+const BellSolid = ({ color }: IProps) => {
   const width = 13;
   const height = 15;
 
@@ -16,4 +16,4 @@ const BellOutlined = ({ color }: IProps) => {
   );
 }
 
-export default BellOutlined;
+export default BellSolid;

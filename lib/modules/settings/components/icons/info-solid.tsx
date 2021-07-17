@@ -5,7 +5,7 @@ interface IProps {
   color?: string;
 }
 
-const InfoOutlined = ({ color }: IProps) => {
+const InfoSolid = ({ color }: IProps) => {
   const width = 15;
   const height = 15;
 
@@ -16,4 +16,4 @@ const InfoOutlined = ({ color }: IProps) => {
   );
 }
 
-export default InfoOutlined;
+export default InfoSolid;

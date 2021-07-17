@@ -5,7 +5,7 @@ interface IProps {
   color?: string;
 }
 
-const PaletteOutlined = ({ color }: IProps) => {
+const PaletteSolid = ({ color }: IProps) => {
   const width = 15;
   const height = 15;
 
@@ -16,4 +16,4 @@ const PaletteOutlined = ({ color }: IProps) => {
   );
 }
 
-export default PaletteOutlined;
+export default PaletteSolid;

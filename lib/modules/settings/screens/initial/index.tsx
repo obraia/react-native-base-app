@@ -3,7 +3,8 @@ import { useNavigation } from "@react-navigation/native";
 import { BellOutlined, InfoOutlined, PaletteOutlined } from "../../components/icons";
 import { Item } from "../../components/item";
 import { Profile } from "../../components/profile";
-import { Container, Group } from "./styles";
+import { Group } from "../../components/group";
+import { Container } from "./styles";
 
 const Settings = () => {
 
@@ -27,7 +28,6 @@ const Settings = () => {
           <Item
             key={index}
             title={item.title}
-            page={item.page}
             icon={item.icon}
             color={item.color}
             border={index !== 0}
