@@ -11,9 +11,24 @@ const Settings = () => {
   const navigation = useNavigation();
 
   const items = [
-    { title: "Notifications", icon: BellOutlined, page: "Notifications", color: "#FF7300" },
-    { title: "Apparence", icon: PaletteOutlined, page: "Apparence", color: "#FF7300" },
-    { title: "About", icon: InfoOutlined, page: "About", color: "#FF7300" },
+    {
+      title: "Notifications",
+      icon: BellOutlined,
+      page: "Notifications",
+      color: "#FF7300"
+    },
+    {
+      title: "Apparence",
+      icon: PaletteOutlined,
+      page: "Apparence",
+      color: "#FF7300"
+    },
+    {
+      title: "About",
+      icon: InfoOutlined,
+      page: "About",
+      color: "#FF7300"
+    },
   ];
 
   return (

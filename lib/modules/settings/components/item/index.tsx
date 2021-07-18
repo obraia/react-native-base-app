@@ -4,6 +4,7 @@ import { ButtonContainer, Button, IconContainer, Title } from "./styles";
 interface IProps {
   title: string;
   icon: ({ color }: { color: string }) => JSX.Element;
+  disabled?: boolean;
   action?: () => JSX.Element;
   color: string;
   border?: boolean;
@@ -13,7 +14,7 @@ interface IProps {
 const Item = (props: IProps) => {
   return (
     <ButtonContainer border={props.border}>
-      <Button onPress={props.onPress}>
+      <Button onPress={props.onPress} enabled={!props.disabled}>
         <IconContainer color={props.color}>
           <props.icon color={props.color} />
         </IconContainer>
