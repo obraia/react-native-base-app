@@ -1,3 +1,5 @@
+import { DefaultTheme } from "styled-components/native";
+
 export default {
   title: "dark",
 
@@ -8,8 +10,10 @@ export default {
     textPrimary: "#ffffff",
     textSecondary: "#eaeaea",
     textBackground: "#eaeaea",
-    navbarBackground: "#161616",
-    navbarText: "#FFFFFF",
+    navbar: "#161616",
+    textNavbar: "#FFFFFF",
+    header: "#161616",
+    textHeader: "#FFFFFF",
     color1: "#9889c2",
     color2: "#e7de76",
     color3: "#59c0fa",
@@ -23,4 +27,4 @@ export default {
     radius: 15,
     innerRadius: 10,
   }
-};
+} as DefaultTheme;

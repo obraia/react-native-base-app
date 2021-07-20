@@ -4,17 +4,20 @@ import { Item } from "../../components/item";
 import { Group } from "../../components/group";
 import { Container } from "./styles";
 import { Switch } from "../../../../shared/components/switch";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleTheme } from "../../../../shared/reducers/theme";
+import { RootState } from "../../../../store";
 
 const Apparence = () => {
-
-  const [darkMode, setDarkMode] = useState(false);
+  const dispatch = useDispatch();
+  const { theme } = useSelector((state: RootState) => state.theme);
 
   const items = [
     {
       title: "Dark mode",
       icon: AdjustSolid,
-      action: () => Switch({ value: darkMode, color: '#FF7300', ml: true }),
-      onPress: () => setDarkMode(!darkMode),
+      action: () => Switch({ value: theme.title === 'dark', color: '#FF7300', ml: true }),
+      onPress: () => dispatch(toggleTheme()),
       color: "#FF7300"
     },
   ];

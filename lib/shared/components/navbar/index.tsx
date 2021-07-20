@@ -1,9 +1,18 @@
 import React from "react";
 import { BottomTabBarProps } from "@react-navigation/bottom-tabs";
+import { NavigationHelpers, ParamListBase, TabNavigationState } from "@react-navigation/native";
+import { BottomTabNavigationEventMap } from "@react-navigation/bottom-tabs/lib/typescript/src/types";
+import { DefaultTheme } from "styled-components";
 import { Button, Container, Label } from "./styles";
 import { HomeOutlined, HeartOutlined, SearchOutlined, SettingsOutlined } from "../icons";
 
-const NavBar = ({ state, navigation }: BottomTabBarProps) => {
+interface IProps extends BottomTabBarProps {
+  state: TabNavigationState<ParamListBase>,
+  navigation: NavigationHelpers<ParamListBase, BottomTabNavigationEventMap>,
+  theme: DefaultTheme
+}
+
+const NavBar = ({ state, navigation, theme }: IProps) => {
 
   const items = [
     { title: "Home", icon: HomeOutlined, page: "Home", color: "#235DD8" },
@@ -24,7 +33,7 @@ const NavBar = ({ state, navigation }: BottomTabBarProps) => {
             active={isSelected}
             color={item.color}>
 
-            <item.icon color={isSelected ? item.color : '#3b3b3b'} />
+            <item.icon color={isSelected ? item.color : theme.colors.textNavbar} />
 
             {isSelected && (
               <Label color={item.color}>

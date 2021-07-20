@@ -1,22 +1,19 @@
 import React from 'react';
-import { useColorScheme } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { ThemeProvider } from 'styled-components/native';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
 import { Routes } from './lib/routes';
-import dark from './lib/shared/themes/dark';
-import light from './lib/shared/themes/light';
+import { store, persistor } from './lib/store';
 
 const App = () => {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  console.log(isDarkMode);
-
   return (
-    <ThemeProvider theme={isDarkMode ? dark : light}>
-      <SafeAreaProvider>
-        <Routes />
-      </SafeAreaProvider>
-    </ThemeProvider>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <SafeAreaProvider>
+          <Routes />
+        </SafeAreaProvider>
+      </PersistGate>
+    </Provider>
   );
 };
 

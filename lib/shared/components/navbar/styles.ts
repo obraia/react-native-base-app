@@ -18,7 +18,7 @@ export const Container = styled.View`
   justify-content: space-between;
   padding: 8px 10px;
   align-items: center;
-  background: ${({ theme }) => theme.colors.navbarBackground};
+  background: ${({ theme }) => theme.colors.navbar};
 `;
 
 export const Button = styled(RectButton) <IButtonProps>`
@@ -29,7 +29,7 @@ export const Button = styled(RectButton) <IButtonProps>`
   justify-content: center;
   align-items: center;
   border-radius: 30px;
-  background: ${({ theme, color, active }) => (active ? transparentize(0.85, color) : theme.colors.navbarBackground)};
+  background: ${({ theme, color, active }) => (active ? transparentize(0.85, color) : theme.colors.navbar)};
 `;
 
 export const Label = styled.Text<ILabelProps>`

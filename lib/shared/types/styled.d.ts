@@ -2,7 +2,7 @@ import "styled-components";
 
 declare module "styled-components" {
   export interface DefaultTheme {
-    title: string;
+    title: 'light' | 'dark';
 
     colors: {
       primary: string;
@@ -11,8 +11,10 @@ declare module "styled-components" {
       textPrimary: string;
       textSecondary: string;
       textBackground: string;
-      navbarBackground: string,
-      navbarText: string,
+      navbar: string,
+      textNavbar: string,
+      header: string,
+      textHeader: string,
       color1: string;
       color2: string;
       color3: string;
