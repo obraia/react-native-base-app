@@ -7,7 +7,6 @@ import { Container } from "./styles";
 import { Switch } from "../../../../shared/components/switch";
 
 const Notifications = () => {
-
   const [allNotifications, setAllNotifications] = useState(false);
   const [news, setNews] = useState(false);
   const [updates, setUpdates] = useState(false);

@@ -1,13 +1,12 @@
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
-import { BellOutlined, InfoOutlined, PaletteOutlined } from "../../components/icons";
+import { BellOutlined, DatabaseSolid, InfoOutlined, PaletteOutlined } from "../../components/icons";
 import { Item } from "../../components/item";
 import { Profile } from "../../components/profile";
 import { Group } from "../../components/group";
 import { Container } from "./styles";
 
 const Settings = () => {
-
   const navigation = useNavigation();
 
   const items = [
@@ -21,6 +20,12 @@ const Settings = () => {
       title: "Apparence",
       icon: PaletteOutlined,
       page: "Apparence",
+      color: "#FF7300"
+    },
+    {
+      title: "Data",
+      icon: DatabaseSolid,
+      page: "Data",
       color: "#FF7300"
     },
     {
