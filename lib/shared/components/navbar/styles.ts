@@ -1,3 +1,4 @@
+import { Platform } from 'react-native';
 import styled from 'styled-components/native';
 import { RectButton } from 'react-native-gesture-handler';
 import { transparentize } from 'polished';
@@ -12,11 +13,14 @@ interface ILabelProps {
   color: string;
 }
 
+const isIOS = Platform.OS === 'ios';
+
 export const Container = styled.View`
-  height: 60px;
+  height: ${isIOS ? '70px' : '60px'};
   flex-direction: row;
   justify-content: space-between;
   padding: 8px 10px;
+  padding-bottom: ${isIOS ? '18px' : '8px'};
   align-items: center;
   background: ${({ theme }) => theme.colors.navbar};
 `;
@@ -28,7 +32,7 @@ export const Button = styled(RectButton) <IButtonProps>`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  border-radius: 30px;
+  border-radius: 22px;
   background: ${({ theme, color, active }) => (active ? transparentize(0.85, color) : theme.colors.navbar)};
 `;
 
