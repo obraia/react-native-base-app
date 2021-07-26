@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import { configureStore } from '@reduxjs/toolkit';
-import AsyncStorage from '@react-native-community/async-storage';
+import AsyncStorage from '@obraia/async-storage';
 
 import {
   persistStore,
@@ -14,9 +14,13 @@ import {
 } from 'redux-persist';
 
 import themeReducer from '../shared/reducers/theme';
+import storageReducer from '../modules/settings/reducers/storage';
+import notificationsReducer from '../modules/settings/reducers/notifications';
 
 const reducers = combineReducers({
-  theme: themeReducer
+  theme: themeReducer,
+  storage: storageReducer,
+  notifications: notificationsReducer
 });
 
 const persistConfig = {

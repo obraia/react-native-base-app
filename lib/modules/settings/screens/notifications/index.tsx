@@ -5,15 +5,18 @@ import { Item } from "../../components/item";
 import { Group } from "../../components/group";
 import { Container } from "./styles";
 import { Switch } from "../../../../shared/components/switch";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../../../store";
+import { toggleAllNotifications, toggleNews, toggleUpdates } from "../../reducers/notifications";
 
 const Notifications = () => {
-  const [allNotifications, setAllNotifications] = useState(false);
-  const [news, setNews] = useState(false);
-  const [updates, setUpdates] = useState(false);
+
+  const dispatch = useDispatch();
+  const { allNotifications, news, updates } = useSelector((state: RootState) => state.notifications);
 
   const getColor = (color: string, enabled: boolean) => (
     enabled ? color : desaturate(1, color)
-  )
+  );
 
   const items = [
     {
@@ -21,7 +24,7 @@ const Notifications = () => {
       icon: GlobeSolid,
       disabled: false,
       action: () => Switch({ value: allNotifications, color: '#FF7300', ml: true }),
-      onPress: () => setAllNotifications(!allNotifications),
+      onPress: () => dispatch(toggleAllNotifications()),
       color: "#FF7300"
     },
     {
@@ -29,7 +32,7 @@ const Notifications = () => {
       icon: NewsSolid,
       disabled: !allNotifications,
       action: () => Switch({ value: news, color: getColor('#FF7300', allNotifications), ml: true }),
-      onPress: () => setNews(!news),
+      onPress: () => dispatch(toggleNews()),
       color: getColor('#FF7300', allNotifications)
     },
     {
@@ -37,7 +40,7 @@ const Notifications = () => {
       icon: MobileSolid,
       disabled: !allNotifications,
       action: () => Switch({ value: updates, color: getColor('#FF7300', allNotifications), ml: true }),
-      onPress: () => setUpdates(!updates),
+      onPress: () => dispatch(toggleUpdates()),
       color: getColor('#FF7300', allNotifications)
     },
   ];

@@ -23,9 +23,9 @@ const Settings = () => {
       color: "#FF7300"
     },
     {
-      title: "Data",
+      title: "Storage",
       icon: DatabaseSolid,
-      page: "Data",
+      page: "Storage",
       color: "#FF7300"
     },
     {

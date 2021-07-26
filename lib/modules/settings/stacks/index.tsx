@@ -6,7 +6,7 @@ import { Apparence } from "../screens/apparence";
 import { About } from "../screens/about";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store";
-import { Data } from "../screens/data";
+import { Storage } from "../screens/storage";
 
 const Stack = createStackNavigator();
 
@@ -30,7 +30,7 @@ const SettingsNavigator = () => {
       <Stack.Screen name="Settings" component={Settings} />
       <Stack.Screen name="Notifications" component={Notifications} />
       <Stack.Screen name="Apparence" component={Apparence} />
-      <Stack.Screen name="Data" component={Data} />
+      <Stack.Screen name="Storage" component={Storage} />
       <Stack.Screen name="About" component={About} />
     </Stack.Navigator>
   )

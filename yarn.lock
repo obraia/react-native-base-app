@@ -989,10 +989,10 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
-"@react-native-community/async-storage@^1.12.1":
-  version "1.12.1"
-  resolved "https://registry.yarnpkg.com/@react-native-community/async-storage/-/async-storage-1.12.1.tgz#25f821b4f6b13abe005ad67e47c6f1cee9f27b24"
-  integrity sha512-70WGaH3PKYASi4BThuEEKMkyAgE9k7VytBqmgPRx3MzJx9/MkspwqJGmn3QLCgHLIFUgF1pit2mWICbRJ3T3lg==
+"@obraia/async-storage@^1.13.2":
+  version "1.13.2"
+  resolved "https://registry.yarnpkg.com/@obraia/async-storage/-/async-storage-1.13.2.tgz#be7454cb2d5954b58b1f50586428915f42aece81"
+  integrity sha512-fP0dk0yVCMF2Xyspu3FB2sZqcrnqIKhsXx7r4F35Il7FrmdDKzT94LAgnbGERgAE0MdQKWxl9OaEpPo3tsU1oA==
   dependencies:
     deep-assign "^3.0.0"
 
@@ -1362,6 +1362,13 @@
   version "15.7.3"
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.3.tgz#2ab0d5da2e5815f94b0b9d4b95d1e5f243ab2ca7"
   integrity sha512-KfRL3PuHmqQLOG+2tGpRO26Ctg+Cq1E01D2DMriKEATHgWLfeNDmq9e29Q9WIky0dQ3NPkd1mzYH8Lm936Z9qw==
+
+"@types/react-native-restart@0.0.14":
+  version "0.0.14"
+  resolved "https://registry.yarnpkg.com/@types/react-native-restart/-/react-native-restart-0.0.14.tgz#e694e7b92c413a1e95e1cfa299946763bde2ca38"
+  integrity sha512-scqrU+LZy05HsOOk0OgxoSBkxtoGhUmZ7CGNkn5/9XaTGGW+/Is7WPs6UCxu4SLiWBs3R7gkC1WZRY5LGAqJNA==
+  dependencies:
+    react-native-restart "*"
 
 "@types/react-native-vector-icons@^6.4.8":
   version "6.4.8"
@@ -5655,6 +5662,11 @@ react-native-reanimated@^2.2.0:
     fbjs "^3.0.0"
     mockdate "^3.0.2"
     string-hash-64 "^1.0.3"
+
+react-native-restart@*, react-native-restart@^0.0.22:
+  version "0.0.22"
+  resolved "https://registry.yarnpkg.com/react-native-restart/-/react-native-restart-0.0.22.tgz#81fcb7f31e35951d85410c68b9556acf3ab88705"
+  integrity sha512-XwCqAMAKsO8yCM3xACPFKvkDQZe41lcavOuO0gUEu803IuTLtciualCq/qs83ryRDCDh1jkXYRqFjsGjLMCN3Q==
 
 react-native-safe-area-context@^3.2.0:
   version "3.2.0"

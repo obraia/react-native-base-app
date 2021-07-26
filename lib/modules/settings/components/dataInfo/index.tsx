@@ -1,11 +1,11 @@
-import { transparentize } from "polished";
 import React from "react";
+import { transparentize } from "polished";
 import { DatabaseDual } from "../icons";
 import { IconContainer, Container, Infos, Size, Unity } from "./styles";
 
 interface IProps {
-  size: number;
-  unity: string;
+  size?: number;
+  unity?: string;
 }
 
 const DataInfo = (props: IProps) => {
