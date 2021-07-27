@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { BellOutlined, DatabaseSolid, InfoOutlined, PaletteOutlined } from "../../components/icons";
 import { Item } from "../../components/item";
 import { Profile } from "../../components/profile";
 import { Group } from "../../components/group";
 import { Container } from "./styles";
+import { Modal } from "../../../../shared/components/modal";
+import { Alert, Text } from "react-native";
 
 const Settings = () => {
   const navigation = useNavigation();
@@ -54,7 +56,6 @@ const Settings = () => {
             onPress={() => navigation.navigate(item.page)} />
         ))}
       </Group>
-
     </Container>
   );
 }
