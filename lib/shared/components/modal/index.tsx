@@ -25,8 +25,7 @@ const Modal = (props: IProps) => {
       transparent
       statusBarTranslucent
       animationType={props.animationType}
-      visible={props.isVisible}
-      onRequestClose={props.toggle}>
+      visible={props.isVisible}>
       <Wrapper>
         <Content>
           {props.children}

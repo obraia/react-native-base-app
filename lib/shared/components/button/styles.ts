@@ -11,7 +11,7 @@ interface TitleProps {
   color: string;
 }
 
-export const ButtonContainer = styled.TouchableNativeFeedback`
+export const ButtonContainer = styled.TouchableWithoutFeedback`
   border-radius: ${({ theme }) => theme.metrics.innerRadius}px;
 `;
 
@@ -24,7 +24,7 @@ export const Button = styled(RectButton) <ButtonProps>`
   align-items: center;
   padding: 0 10px;
   border-radius: ${({ theme }) => theme.metrics.innerRadius}px;
-  background: ${({ color, outline }) => outline ? 'transparent' : transparentize(0.75, color)};
+  background: ${({ color, outline }) => outline ? transparentize(1, color) : transparentize(0.75, color)};
 `;
 
 export const Title = styled.Text<TitleProps>`

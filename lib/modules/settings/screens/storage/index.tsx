@@ -77,6 +77,7 @@ const Storage = () => {
 
       {clearAllDataConfirmModal && (
         <Modal
+          animationType="fade"
           toggle={toggleClearAllDataConfirmModal}
           isVisible={clearAllDataConfirmModal}
           buttonsDirection="row"
