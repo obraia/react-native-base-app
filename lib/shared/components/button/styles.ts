@@ -18,7 +18,8 @@ export const ButtonContainer = styled.TouchableWithoutFeedback`
 export const Button = styled(RectButton) <ButtonProps>`
   flex: 1;
   flex-basis: auto;
-  height: 50px;
+  min-height: 50px;
+  max-height: 50px;
   flex-direction: row;
   justify-content: center;
   align-items: center;

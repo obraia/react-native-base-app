@@ -11,7 +11,6 @@ interface IProps {
 }
 
 const ButtonColor = (props: IProps) => {
-
   return (
     <ButtonContainer onPress={props.onPress} touchSoundDisabled>
       <Button
