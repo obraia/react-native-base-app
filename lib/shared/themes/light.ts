@@ -24,7 +24,7 @@ export default {
   metrics: {
     padding: 10,
     margin: 10,
-    radius: 15,
-    innerRadius: 10,
+    radius: 10,
+    innerRadius: 7,
   }
 } as DefaultTheme;
