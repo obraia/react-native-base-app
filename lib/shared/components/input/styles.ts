@@ -1,7 +1,19 @@
 import styled from 'styled-components/native';
-import { lighten } from 'polished';
+import { RectButton } from 'react-native-gesture-handler';
+import { lighten, transparentize } from 'polished';
 
-export const Container = styled.View`
+interface ContainerProps {
+  mt?: boolean;
+  mb?: boolean;
+}
+
+interface Props {
+  color?: string;
+}
+
+export const Container = styled.View<ContainerProps>`
+  ${({ theme, mb }) => (mb ? 'margin-bottom: ' + theme.metrics.margin + 'px' : '')};
+  ${({ theme, mt }) => (mt ? 'margin-top: ' + theme.metrics.margin + 'px' : '')};
 `;
 
 export const InputGroup = styled.View`
@@ -10,27 +22,39 @@ export const InputGroup = styled.View`
   align-items: center;
 `;
 
-export const TextInput = styled.TextInput`
+export const TextInput = styled.TextInput<Props>`
   flex: 1;
   flex-basis: auto;
   height: 50px;
-  padding: 0 10px;
+  padding: 0 20px;
+  ${({ color }) => color ? `border: 2px solid ${color}` : ''};
   border-radius: ${({ theme }) => theme.metrics.innerRadius}px;
-  background: ${({ theme }) => lighten(0.05, theme.colors.background)};
+  color: ${({ theme, color }) => color ? color : theme.colors.textBackground};
+  background: ${({ theme, color }) => color ? transparentize(0.95, color) : lighten(0.05, theme.colors.background)};
+
 `;
 
-export const Label = styled.Text`
+export const Button = styled(RectButton)`
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  right: 20px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  background: ${transparentize(1, '#fff')};
+`;
+
+export const Label = styled.Text<Props>`
   margin-bottom: ${({ theme }) => theme.metrics.margin}px;
-  margin-left: ${({ theme }) => theme.metrics.margin}px;
   font-size: 14px;
   font-weight: bold;
-  color: ${({ theme }) => lighten(0.05, theme.colors.textBackground)};
+  color: ${({ color }) => color};
 `;
 
-export const Message = styled.Text`
+export const Message = styled.Text<Props>`
   margin-top: ${({ theme }) => theme.metrics.margin}px;
-  margin-left: ${({ theme }) => theme.metrics.margin}px;
   font-size: 14px;
   font-weight: bold;
-  color: ${({ theme }) => lighten(0.05, theme.colors.textBackground)};
+  color: ${({ color }) => color};
 `;
