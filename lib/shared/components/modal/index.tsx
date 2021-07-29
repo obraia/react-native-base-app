@@ -1,12 +1,12 @@
 import React from "react";
-import { ButtonColor } from "../button";
+import { Button, ButtonColors } from "../button";
 import { Spacer } from "../spacer";
 import { Container, Wrapper, Content, Footer } from "./styles";
 
 interface IButtonProps {
   title: string;
   onPress: () => void;
-  color: string;
+  type: ButtonColors;
   outline?: boolean;
 }
 
@@ -32,11 +32,11 @@ const Modal = (props: IProps) => {
           <Footer flexDirection={props.buttonsDirection}>
             {props.buttons?.map((button, index) => (
               <>
-                <ButtonColor
+                <Button
                   key={index}
                   children={button.title}
                   onPress={button.onPress}
-                  color={button.color}
+                  type={button.type}
                   outline={button.outline}
                 />
                 {props.buttons[index + 1] && <Spacer key={'s' + index} />}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, forwardRef } from "react";
 import { TextInputProps } from "react-native";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store";
@@ -6,22 +6,23 @@ import EyeOutlined from "../icons/eye-outlined";
 import EyeSlashOutlined from "../icons/eye-slash-outlined";
 import { Container, InputGroup, Label, Message, TextInput, Button } from "./styles";
 
+type InputTypes = "text" | "password" | "number" | "email" | "tel" | "url";
+type MessageTypes = "error" | "info" | "success" | "warning";
+
 export interface IValidationInput {
   text?: string;
-  type?: "error" | "warning" | "info" | "success";
+  type?: MessageTypes;
 }
 
 interface IProps {
   name: string;
   message?: IValidationInput;
-  mb?: boolean;
-  mt?: boolean;
-  type?: 'text' | 'number' | 'password' | 'email' | 'tel' | 'url';
+  type?: InputTypes;
   inputProps?: TextInputProps;
   onChangeText?: (text: string) => void;
 }
 
-const Input = (props: IProps) => {
+const Input = forwardRef((props: IProps, ref: React.Ref<any>) => {
   const { theme } = useSelector((state: RootState) => state.theme);
   const [secureTextEntry, setSecureTextEntry] = useState(props.inputProps?.secureTextEntry);
 
@@ -29,32 +30,21 @@ const Input = (props: IProps) => {
     setSecureTextEntry(!secureTextEntry);
   };
 
-  const getColor = (type?: string) => {
-    switch (type) {
-      case "error":
-        return "#ee8181";
-      case "warning":
-        return "#e4c126";
-      case "info":
-        return "#1089cf";
-      case "success":
-        return "#74df94";
-      case "default":
-        return undefined;
-      default:
-        return theme.colors.textBackground;
-    }
+  const getColor = (type?: MessageTypes) => {
+    if (type) return theme.colors[type];
+    else return theme.colors.textBackground;
   };
 
   return (
-    <Container mb={props.mb} mt={props.mt}>
+    <Container>
       <Label color={getColor(props.message?.type)}>
         {props.name}
       </Label>
       <InputGroup>
         <TextInput {...props.inputProps}
-          color={getColor(props.message?.type || 'default')}
-          secureTextEntry={secureTextEntry} />
+          color={props.message?.type ? getColor(props.message?.type) : undefined}
+          secureTextEntry={secureTextEntry}
+          ref={ref} />
         {props.type === 'password' && (
           <Button onPress={toggleSecureTextEntry}>
             {secureTextEntry ?
@@ -68,6 +58,6 @@ const Input = (props: IProps) => {
       </Message>
     </Container>
   );
-}
+});
 
 export { Input }

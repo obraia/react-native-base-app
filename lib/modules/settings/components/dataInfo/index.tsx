@@ -6,6 +6,7 @@ import { IconContainer, Container, Infos, Size, Unity } from "./styles";
 interface IProps {
   size?: number;
   unity?: string;
+  color: string;
 }
 
 const DataInfo = (props: IProps) => {
@@ -13,8 +14,8 @@ const DataInfo = (props: IProps) => {
     <Container>
       <IconContainer>
         <DatabaseDual
-          colorPrimary={'#FF7300'}
-          colorSecondary={transparentize(0.5, '#FF7300')} />
+          colorPrimary={props.color}
+          colorSecondary={transparentize(0.5, props.color)} />
       </IconContainer>
       <Infos>
         <Size style={{ includeFontPadding: false }}>{props.size}</Size>

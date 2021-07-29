@@ -14,6 +14,7 @@ const Storage = () => {
   const [clearAllDataConfirmModal, setClearAllDataConfirmModal] = useState(false);
 
   const dispatch = useDispatch();
+  const { theme } = useSelector((state: RootState) => state.theme);
   const { autoDownload, sync, cache } = useSelector((state: RootState) => state.storage);
 
   const toggleClearAllDataConfirmModal = () => {
@@ -33,34 +34,37 @@ const Storage = () => {
     {
       title: "Automatic download",
       icon: DownloadSolid,
-      action: () => Switch({ value: autoDownload, color: '#FF7300', ml: true }),
+      action: () => Switch({ value: autoDownload, color: theme.colors.primary, ml: true }),
       onPress: () => dispatch(toggleAutoDownload()),
-      color: "#FF7300"
+      color: theme.colors.primary
     },
     {
-      title: "Backup and Sync",
+      title: 'Backup and Sync',
       icon: SyncSolid,
-      action: () => Switch({ value: sync, color: "#FF7300", ml: true }),
+      action: () => Switch({ value: sync, color: theme.colors.primary, ml: true }),
       onPress: () => dispatch(toggleSync()),
-      color: "#FF7300"
+      color: theme.colors.primary
     },
     {
-      title: "Clear search history",
+      title: 'Clear search history',
       icon: HistorySolid,
       onPress: () => dispatch(clearSearchHistory()),
-      color: "#FF7300"
+      color: theme.colors.primary
     },
     {
-      title: "Clear all data",
+      title: 'Clear all data',
       icon: MobileSolid,
       onPress: toggleClearAllDataConfirmModal,
-      color: "#FF7300"
+      color: theme.colors.error
     },
   ];
 
   return (
     <Container>
-      <DataInfo size={cache.size} unity={cache.unity} />
+      <DataInfo
+        size={cache.size}
+        unity={cache.unity}
+        color={theme.colors.primary} />
 
       <Group mt>
         {items.map((item, index) => (
@@ -84,13 +88,13 @@ const Storage = () => {
           buttons={[
             {
               title: 'Cancel',
-              color: '#BB3232',
+              type: 'error',
               outline: true,
               onPress: toggleClearAllDataConfirmModal
             },
             {
               title: 'Confirm',
-              color: '#206ee4',
+              type: 'primary',
               onPress: confirmClearAllData
             },
           ]}>

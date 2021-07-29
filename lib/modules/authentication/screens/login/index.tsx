@@ -1,80 +1,118 @@
-import React from "react";
+import React, { useRef, useState } from "react";
+import { TextInput } from "react-native";
+import { useSelector } from "react-redux";
 import { useNavigation } from "@react-navigation/native";
-import { ButtonColor } from "../../../../shared/components/button";
+import { Button } from "../../../../shared/components/button";
 import { Input, IValidationInput } from "../../../../shared/components/input";
 import { Spacer } from "../../../../shared/components/spacer";
-import { Container, Body, Footer, Title } from "./styles";
+import { Container, Body, Title } from "./styles";
+import { Checkbox } from "../../../../shared/components/checkbox";
+import { RootState } from "../../../../store";
 
 const Login = () => {
+  const { theme } = useSelector((state: RootState) => state.theme);
   const { navigate } = useNavigation();
 
-  const [username, setUsername] = React.useState('');
-  const [password, setPassword] = React.useState('');
-  const [usernameValidation, setUsernameValidation] = React.useState({} as IValidationInput);
-  const [passwordValidation, setPasswordValidation] = React.useState({} as IValidationInput);
+  const usernameRef = useRef<TextInput>(null);
+  const passwordRef = useRef<TextInput>(null);
+
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [usernameValidation, setUsernameValidation] = useState({} as IValidationInput);
+  const [passwordValidation, setPasswordValidation] = useState({} as IValidationInput);
+  const [remember, setRemember] = useState(false);
+
+  const setPasswordFocus = () => {
+    if (passwordRef.current) passwordRef.current.focus();
+  }
 
   const handleSubmit = async () => {
     console.log(username, password);
 
-    if (username.length < 4) {
+    if (isValid()) {
+      navigate('Tabs')
+    } else {
       setUsernameValidation({ text: 'Invalid username', type: 'error' });
-    } else {
-      setUsernameValidation({});
-    }
-
-    if (password.length < 4) {
       setPasswordValidation({ text: 'Invalid password', type: 'error' });
-    } else {
-      setPasswordValidation({});
     }
+  }
 
-    navigate('Tabs')
+  const isValidUsername = () => username.length > 4;
+  const isValidPassword = () => password.length > 4;
+
+  const isValid = () => {
+    return isValidUsername() && isValidPassword();
   }
 
   return (
     <Container>
       <Body>
         <Title>Sign in</Title>
+
+        <Spacer size={3} />
+
         <Input
-          mb
           name='Username'
           message={usernameValidation}
           inputProps={{
             value: username,
             onChangeText: setUsername,
+            onSubmitEditing: setPasswordFocus
           }} />
+
+        <Spacer />
+
         <Input
-          mb
           name='Password'
           message={passwordValidation}
           type='password'
+          ref={passwordRef}
           inputProps={{
             secureTextEntry: true,
             value: password,
             onChangeText: setPassword,
-            onSubmitEditing: handleSubmit,
+            onSubmitEditing: handleSubmit
           }} />
-        <ButtonColor
-          color='#2433FF'
-          onPress={handleSubmit}>
+
+        <Spacer />
+
+        <Checkbox
+          label='Remember me'
+          value={remember}
+          color={theme.colors.primary}
+          onPress={() => setRemember(!remember)} />
+
+        <Spacer size={3} />
+
+        <Button
+          type='primary'
+          onPress={handleSubmit}
+          disabled={!isValid()}>
           Login
-        </ButtonColor>
+        </Button>
+
+        <Spacer />
+
+        <Button outline type='primary' onPress={handleSubmit}>
+          Forgot password?
+        </Button>
       </Body>
-      <Footer>
-        <ButtonColor
+
+      {/* <Footer>
+        <Button
           color='#006EFF'
           outline
           onPress={() => { }}>
           Sign in
-        </ButtonColor>
+        </Button>
         <Spacer />
-        <ButtonColor
+        <Button
           color='#FF5724'
           outline
           onPress={() => { }}>
           Sign in
-        </ButtonColor>
-      </Footer>
+        </Button>
+      </Footer> */}
 
     </Container>
   );

@@ -11,7 +11,6 @@ export const Body = styled.View`
 `;
 
 export const Title = styled.Text`
-  margin-bottom: ${({ theme }) => theme.metrics.margin * 2}px;
   font-size: 36px;
   font-weight: bold;
   color: ${({ theme }) => theme.colors.textBackground};

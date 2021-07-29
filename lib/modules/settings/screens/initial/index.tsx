@@ -1,40 +1,41 @@
-import React, { useState } from "react";
-import { useNavigation } from "@react-navigation/native";
-import { BellOutlined, DatabaseSolid, InfoOutlined, PaletteOutlined } from "../../components/icons";
-import { Item } from "../../components/item";
-import { Profile } from "../../components/profile";
-import { Group } from "../../components/group";
-import { Container } from "./styles";
-import { Modal } from "../../../../shared/components/modal";
-import { Alert, Text } from "react-native";
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { useNavigation } from '@react-navigation/native';
+import { BellOutlined, DatabaseSolid, InfoOutlined, PaletteOutlined } from '../../components/icons';
+import { Item } from '../../components/item';
+import { Profile } from '../../components/profile';
+import { Group } from '../../components/group';
+import { Container } from './styles';
+import { RootState } from '../../../../store';
 
 const Settings = () => {
-  const navigation = useNavigation();
+  const { theme } = useSelector((state: RootState) => state.theme);
+  const { navigate } = useNavigation();
 
   const items = [
     {
-      title: "Notifications",
+      title: 'Notifications',
       icon: BellOutlined,
-      page: "Notifications",
-      color: "#FF7300"
+      page: 'Notifications',
+      color: theme.colors.primary
     },
     {
-      title: "Apparence",
+      title: 'Apparence',
       icon: PaletteOutlined,
-      page: "Apparence",
-      color: "#FF7300"
+      page: 'Apparence',
+      color: theme.colors.primary
     },
     {
-      title: "Storage",
+      title: 'Storage',
       icon: DatabaseSolid,
-      page: "Storage",
-      color: "#FF7300"
+      page: 'Storage',
+      color: theme.colors.primary
     },
     {
-      title: "About",
+      title: 'About',
       icon: InfoOutlined,
-      page: "About",
-      color: "#FF7300"
+      page: 'About',
+      color: theme.colors.primary
     },
   ];
 
@@ -53,7 +54,7 @@ const Settings = () => {
             icon={item.icon}
             color={item.color}
             border={index !== 0}
-            onPress={() => navigation.navigate(item.page)} />
+            onPress={() => navigate(item.page)} />
         ))}
       </Group>
     </Container>

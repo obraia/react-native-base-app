@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
-import { ButtonColor } from "../../../../shared/components/button";
+import { Button } from "../../../../shared/components/button";
 import { Spacer } from "../../../../shared/components/spacer";
 import { Body, Container, Footer } from "./styles";
 
@@ -13,18 +13,18 @@ const Initial = () => {
 
       </Body>
       <Footer>
-        <ButtonColor
-          color='#2433FF'
+        <Button
+          type='primary'
           onPress={() => navigate('Login')}>
           Sign in
-        </ButtonColor>
+        </Button>
         <Spacer />
-        <ButtonColor
-          color='#2433FF'
+        <Button
+          type='primary'
           outline
           onPress={() => { }}>
           Create an account
-        </ButtonColor>
+        </Button>
       </Footer>
     </Container>
   );

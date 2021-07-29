@@ -5,16 +5,24 @@ declare module "styled-components" {
     title: 'light' | 'dark';
 
     colors: {
-      primary: string;
-      secondary: string;
-      background: string;
-      textPrimary: string;
-      textSecondary: string;
-      textBackground: string;
+      primary: string,
+      textPrimary: string,
+      secondary: string,
+      textSecondary: string,
+      background: string,
+      textBackground: string,
       navbar: string,
       textNavbar: string,
       header: string,
       textHeader: string,
+      error: string,
+      textError: string,
+      warning: string,
+      textWarning: string,
+      info: string,
+      textInfo: string,
+      success: string,
+      textSuccess: string,
       color1: string;
       color2: string;
       color3: string;

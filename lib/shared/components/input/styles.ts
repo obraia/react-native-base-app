@@ -2,18 +2,13 @@ import styled from 'styled-components/native';
 import { RectButton } from 'react-native-gesture-handler';
 import { lighten, transparentize } from 'polished';
 
-interface ContainerProps {
-  mt?: boolean;
-  mb?: boolean;
-}
 
 interface Props {
   color?: string;
 }
 
-export const Container = styled.View<ContainerProps>`
-  ${({ theme, mb }) => (mb ? 'margin-bottom: ' + theme.metrics.margin + 'px' : '')};
-  ${({ theme, mt }) => (mt ? 'margin-top: ' + theme.metrics.margin + 'px' : '')};
+export const Container = styled.View`
+
 `;
 
 export const InputGroup = styled.View`

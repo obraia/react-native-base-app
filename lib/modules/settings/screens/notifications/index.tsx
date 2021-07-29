@@ -1,17 +1,17 @@
-import React, { useState } from "react";
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { desaturate } from 'polished';
-import { GlobeSolid, MobileSolid, NewsSolid } from "../../components/icons";
-import { Item } from "../../components/item";
-import { Group } from "../../components/group";
-import { Container } from "./styles";
-import { Switch } from "../../../../shared/components/switch";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../../../store";
-import { toggleAllNotifications, toggleNews, toggleUpdates } from "../../reducers/notifications";
+import { GlobeSolid, MobileSolid, NewsSolid } from '../../components/icons';
+import { Item } from '../../components/item';
+import { Group } from '../../components/group';
+import { Container } from './styles';
+import { Switch } from '../../../../shared/components/switch';
+import { RootState } from '../../../../store';
+import { toggleAllNotifications, toggleNews, toggleUpdates } from '../../reducers/notifications';
 
 const Notifications = () => {
-
   const dispatch = useDispatch();
+  const { theme } = useSelector((state: RootState) => state.theme);
   const { allNotifications, news, updates } = useSelector((state: RootState) => state.notifications);
 
   const getColor = (color: string, enabled: boolean) => (
@@ -20,28 +20,28 @@ const Notifications = () => {
 
   const items = [
     {
-      title: "Notifications",
+      title: 'Notifications',
       icon: GlobeSolid,
       disabled: false,
-      action: () => Switch({ value: allNotifications, color: '#FF7300', ml: true }),
+      action: () => Switch({ value: allNotifications, color: theme.colors.primary, ml: true }),
       onPress: () => dispatch(toggleAllNotifications()),
-      color: "#FF7300"
+      color: theme.colors.primary
     },
     {
-      title: "News",
+      title: 'News',
       icon: NewsSolid,
       disabled: !allNotifications,
-      action: () => Switch({ value: news, color: getColor('#FF7300', allNotifications), ml: true }),
+      action: () => Switch({ value: news, color: getColor(theme.colors.primary, allNotifications), ml: true }),
       onPress: () => dispatch(toggleNews()),
-      color: getColor('#FF7300', allNotifications)
+      color: getColor(theme.colors.primary, allNotifications)
     },
     {
-      title: "App updates",
+      title: 'App updates',
       icon: MobileSolid,
       disabled: !allNotifications,
-      action: () => Switch({ value: updates, color: getColor('#FF7300', allNotifications), ml: true }),
+      action: () => Switch({ value: updates, color: getColor(theme.colors.primary, allNotifications), ml: true }),
       onPress: () => dispatch(toggleUpdates()),
-      color: getColor('#FF7300', allNotifications)
+      color: getColor(theme.colors.primary, allNotifications)
     },
   ];
 

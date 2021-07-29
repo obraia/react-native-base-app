@@ -1,10 +1,10 @@
 import styled from 'styled-components/native';
 
 interface Props {
-  width?: number;
-  height?: number;
+  size?: number;
 }
+
 export const Spacer = styled.View<Props>`
-  width: ${({ width, theme }) => width ? width : theme.metrics.padding}px;
-  height: ${({ height, theme }) => height ? height : theme.metrics.padding}px;
+  width: ${({ size, theme }) => theme.metrics.padding * (size || 1)}px;
+  height: ${({ size, theme }) => theme.metrics.padding * (size || 1)}px;
 `;
