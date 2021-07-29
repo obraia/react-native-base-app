@@ -1,23 +1,62 @@
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
 import { ButtonColor } from "../../../../shared/components/button";
-import { Input } from "../../../../shared/components/input";
+import { Input, IValidationInput } from "../../../../shared/components/input";
 import { Spacer } from "../../../../shared/components/spacer";
-import { Container, Body, Footer } from "./styles";
+import { Container, Body, Footer, Title } from "./styles";
 
 const Login = () => {
   const { navigate } = useNavigation();
 
+  const [username, setUsername] = React.useState('');
+  const [password, setPassword] = React.useState('');
+  const [usernameValidation, setUsernameValidation] = React.useState({} as IValidationInput);
+  const [passwordValidation, setPasswordValidation] = React.useState({} as IValidationInput);
+
+  const handleSubmit = async () => {
+    console.log(username, password);
+
+    if (username.length < 4) {
+      setUsernameValidation({ text: 'Invalid username', type: 'error' });
+    } else {
+      setUsernameValidation({});
+    }
+
+    if (password.length < 4) {
+      setPasswordValidation({ text: 'Invalid password', type: 'error' });
+    } else {
+      setPasswordValidation({});
+    }
+
+    navigate('Tabs')
+  }
+
   return (
     <Container>
       <Body>
-        <Input name='Username' />
+        <Title>Sign in</Title>
         <Input
+          mb
+          name='Username'
+          message={usernameValidation}
+          inputProps={{
+            value: username,
+            onChangeText: setUsername,
+          }} />
+        <Input
+          mb
           name='Password'
-          inputProps={{ secureTextEntry: true }} />
+          message={passwordValidation}
+          type='password'
+          inputProps={{
+            secureTextEntry: true,
+            value: password,
+            onChangeText: setPassword,
+            onSubmitEditing: handleSubmit,
+          }} />
         <ButtonColor
           color='#2433FF'
-          onPress={() => navigate('Tabs')}>
+          onPress={handleSubmit}>
           Login
         </ButtonColor>
       </Body>
