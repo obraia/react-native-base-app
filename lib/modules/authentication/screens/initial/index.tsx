@@ -22,7 +22,7 @@ const Initial = () => {
         <Button
           type='primary'
           outline
-          onPress={() => { }}>
+          onPress={() => navigate('Register')}>
           Create an account
         </Button>
       </Footer>

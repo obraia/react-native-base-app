@@ -10,7 +10,7 @@ import { RootState } from '../../../../store';
 
 const Settings = () => {
   const { theme } = useSelector((state: RootState) => state.theme);
-  const { navigate } = useNavigation();
+  const { navigate, reset } = useNavigation();
 
   const items = [
     {
@@ -39,12 +39,18 @@ const Settings = () => {
     },
   ];
 
+  const handleLogout = () => {
+    reset({ index: 0, routes: [{ name: 'Auth' }] });
+  };
+
   return (
     <Container>
       <Profile
         name={'Bryan Diniz'}
         email={'obraiadev@gmail.com'}
-        avatarUrl={'https://avatars.githubusercontent.com/u/59900769?v=4'} />
+        avatarUrl={'https://avatars.githubusercontent.com/u/59900769?v=4'}
+        color={theme.colors.primary}
+        onLogout={handleLogout} />
 
       <Group mt>
         {items.map((item, index) => (

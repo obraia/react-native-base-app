@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import { RectButton } from 'react-native-gesture-handler';
 import { lighten, transparentize } from 'polished';
 
 export const Container = styled.View`
@@ -32,4 +33,15 @@ export const Email = styled.Text`
   font-size: 12px;
   font-weight: bold;
   color: ${({ theme }) => transparentize(0.5, theme.colors.textBackground)};
+`;
+
+export const Button = styled(RectButton)`
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  right: 20px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px;
+  background: ${transparentize(1, '#fff')};
 `;

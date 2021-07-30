@@ -14,8 +14,8 @@ const TabNavigator = () => {
 
   return (
     <Tab.Navigator
-      tabBar={props => NavBar({ ...props, theme })}
       initialRouteName="Settings"
+      tabBar={props => NavBar({ ...props, theme })}
       sceneContainerStyle={{ backgroundColor: theme.colors.background }}>
       <Tab.Screen name="Home" component={HomeNavigator} />
       <Tab.Screen name="Favorites" component={HomeNavigator} />

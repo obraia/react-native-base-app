@@ -1,20 +1,26 @@
 import React from "react";
-import { Avatar, Container, Email, Infos, Name } from "./styles";
+import SignOutSolid from "../icons/sign-out-solid";
+import { Avatar, Container, Email, Infos, Name, Button } from "./styles";
 
 interface IProps {
   name: string;
   email: string;
   avatarUrl: string;
+  color: string;
+  onLogout: () => void;
 }
 
-const Profile = ({ name, email, avatarUrl }: IProps) => {
+const Profile = (props: IProps) => {
   return (
     <Container>
-      <Avatar source={{ uri: avatarUrl }} />
+      <Avatar source={{ uri: props.avatarUrl }} />
       <Infos>
-        <Name>{name}</Name>
-        <Email>{email}</Email>
+        <Name>{props.name}</Name>
+        <Email>{props.email}</Email>
       </Infos>
+      <Button onPress={props.onLogout}>
+        <SignOutSolid color={props.color} />
+      </Button>
     </Container>
   );
 }

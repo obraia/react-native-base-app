@@ -3,6 +3,7 @@ import { StatusBar } from "react-native";
 import { useSelector } from "react-redux";
 import { ThemeProvider } from 'styled-components/native';
 import { NavigationContainer } from '@react-navigation/native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import 'react-native-gesture-handler';
 import { StackNavigator } from "./stacks";
 import { RootState } from "../store";
@@ -13,12 +14,14 @@ const Routes = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <StatusBar
-        backgroundColor={theme.colors.header}
-        barStyle={theme.title === 'light' ? 'dark-content' : 'light-content'} />
-      <NavigationContainer>
-        <StackNavigator />
-      </NavigationContainer>
+      <SafeAreaProvider style={{ backgroundColor: theme.colors.background }}>
+        <StatusBar
+          backgroundColor={theme.colors.header}
+          barStyle={theme.title === 'light' ? 'dark-content' : 'light-content'} />
+        <NavigationContainer theme={theme as any}>
+          <StackNavigator />
+        </NavigationContainer>
+      </SafeAreaProvider>
     </ThemeProvider>
   )
 }

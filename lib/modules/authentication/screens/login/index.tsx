@@ -11,7 +11,7 @@ import { RootState } from "../../../../store";
 
 const Login = () => {
   const { theme } = useSelector((state: RootState) => state.theme);
-  const { navigate } = useNavigation();
+  const { navigate, reset } = useNavigation();
 
   const usernameRef = useRef<TextInput>(null);
   const passwordRef = useRef<TextInput>(null);
@@ -30,7 +30,7 @@ const Login = () => {
     console.log(username, password);
 
     if (isValid()) {
-      navigate('Tabs')
+      reset({ index: 0, routes: [{ name: 'Tabs' }] });
     } else {
       setUsernameValidation({ text: 'Invalid username', type: 'error' });
       setPasswordValidation({ text: 'Invalid password', type: 'error' });
