@@ -6,7 +6,7 @@ import EyeOutlined from "../icons/eye-outlined";
 import EyeSlashOutlined from "../icons/eye-slash-outlined";
 import { Container, InputGroup, Label, Message, TextInput, Button } from "./styles";
 
-type InputTypes = "text" | "password" | "number" | "email" | "tel" | "url";
+type InputTypes = "text" | "password" | "number" | "email" | "tel" | "url" | "search" | "date" | "time";
 type MessageTypes = "error" | "info" | "success" | "warning";
 
 export interface IValidationInput {

@@ -14,13 +14,13 @@ const TabNavigator = () => {
 
   return (
     <Tab.Navigator
-      initialRouteName="Settings"
-      tabBar={props => NavBar({ ...props, theme })}
+      initialRouteName="SettingsNavigator"
+      tabBar={(props: any) => NavBar({ ...props, theme })}
       sceneContainerStyle={{ backgroundColor: theme.colors.background }}>
-      <Tab.Screen name="Home" component={HomeNavigator} />
-      <Tab.Screen name="Favorites" component={HomeNavigator} />
-      <Tab.Screen name="Search" component={HomeNavigator} />
-      <Tab.Screen name="Settings" component={SettingsNavigator} />
+      <Tab.Screen name="HomeNavigator" component={HomeNavigator} />
+      <Tab.Screen name="FavoritesNavigator" component={HomeNavigator} />
+      <Tab.Screen name="SearchNavigator" component={HomeNavigator} />
+      <Tab.Screen name="SettingsNavigator" component={SettingsNavigator} />
     </Tab.Navigator>
   )
 }

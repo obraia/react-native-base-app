@@ -63,6 +63,7 @@ const Register = () => {
           message={usernameValidation}
           inputProps={{
             value: username,
+            autoCapitalize: 'none',
             onChangeText: setUsername,
             onSubmitEditing: setPasswordFocus
           }} />
@@ -90,6 +91,7 @@ const Register = () => {
           ref={emailRef}
           inputProps={{
             value: email,
+            autoCapitalize: 'none',
             onChangeText: setEmail,
             onSubmitEditing: handleSubmit
           }} />

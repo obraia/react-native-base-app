@@ -1,6 +1,6 @@
 import React from "react";
 import { CardStyleInterpolators, createStackNavigator, StackNavigationOptions } from '@react-navigation/stack';
-import { Home } from "../screens/initial/index";
+import { Initial } from "../screens/initial/index";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store";
 
@@ -23,7 +23,7 @@ const HomeNavigator = () => {
 
   return (
     <Stack.Navigator screenOptions={screenOptions} headerMode='float'>
-      <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="Home" component={Initial} />
     </Stack.Navigator>
   )
 }

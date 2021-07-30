@@ -1,6 +1,6 @@
 import React from "react";
 import { CardStyleInterpolators, createStackNavigator, StackNavigationOptions } from '@react-navigation/stack';
-import { Settings } from "../screens/initial/index";
+import { Initial } from "../screens/initial/index";
 import { Notifications } from "../screens/notifications";
 import { Apparence } from "../screens/apparence";
 import { About } from "../screens/about";
@@ -27,7 +27,7 @@ const SettingsNavigator = () => {
 
   return (
     <Stack.Navigator screenOptions={screenOptions} headerMode='float'>
-      <Stack.Screen name="Settings" component={Settings} />
+      <Stack.Screen name="Settings" component={Initial} />
       <Stack.Screen name="Notifications" component={Notifications} />
       <Stack.Screen name="Apparence" component={Apparence} />
       <Stack.Screen name="Storage" component={Storage} />

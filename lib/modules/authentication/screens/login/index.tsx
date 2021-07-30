@@ -56,6 +56,7 @@ const Login = () => {
           message={usernameValidation}
           inputProps={{
             value: username,
+            autoCapitalize: 'none',
             onChangeText: setUsername,
             onSubmitEditing: setPasswordFocus
           }} />

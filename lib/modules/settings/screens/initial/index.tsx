@@ -8,7 +8,7 @@ import { Group } from '../../components/group';
 import { Container } from './styles';
 import { RootState } from '../../../../store';
 
-const Settings = () => {
+const Initial = () => {
   const { theme } = useSelector((state: RootState) => state.theme);
   const { navigate, reset } = useNavigation();
 
@@ -67,4 +67,4 @@ const Settings = () => {
   );
 }
 
-export { Settings }
+export { Initial }

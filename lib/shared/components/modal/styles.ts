@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 import { lighten } from 'polished';
 
 interface FooterProps {
-  flexDirection?: 'row' | 'column';
+  flexDirection?: 'row' | 'column' | 'row-reverse' | 'column-reverse';
 }
 
 export const Container = styled(Modal)`

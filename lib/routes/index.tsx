@@ -1,10 +1,11 @@
+import 'react-native-gesture-handler';
+
 import React from "react";
 import { StatusBar } from "react-native";
 import { useSelector } from "react-redux";
 import { ThemeProvider } from 'styled-components/native';
 import { NavigationContainer } from '@react-navigation/native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import 'react-native-gesture-handler';
 import { StackNavigator } from "./stacks";
 import { RootState } from "../store";
 

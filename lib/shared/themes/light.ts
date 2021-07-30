@@ -4,11 +4,11 @@ export default {
   title: "light",
 
   colors: {
-    primary: "#2E54CF",
+    primary: "#3486eb",
     textPrimary: "#fff",
     secondary: "#e8e8e8",
     textSecondary: "#404040",
-    background: "#F5F5F5",
+    background: "#f4f7fc",
     textBackground: "#696969",
     navbar: "#FFFFFF",
     textNavbar: "#404040",

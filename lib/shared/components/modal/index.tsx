@@ -15,7 +15,7 @@ interface IProps {
   isVisible: boolean;
   animationType?: 'none' | 'fade' | 'slide';
   buttons: IButtonProps[];
-  buttonsDirection?: 'row' | 'column';
+  buttonsDirection?: 'row' | 'column' | 'row-reverse' | 'column-reverse';
   toggle: () => void;
 }
 
@@ -31,16 +31,15 @@ const Modal = (props: IProps) => {
           {props.children}
           <Footer flexDirection={props.buttonsDirection}>
             {props.buttons?.map((button, index) => (
-              <>
+              <React.Fragment key={index}>
                 <Button
-                  key={index}
                   children={button.title}
                   onPress={button.onPress}
                   type={button.type}
                   outline={button.outline}
                 />
-                {props.buttons[index + 1] && <Spacer key={'s' + index} />}
-              </>
+                {props.buttons[index + 1] && <Spacer />}
+              </React.Fragment>
             ))}
           </Footer>
         </Content>

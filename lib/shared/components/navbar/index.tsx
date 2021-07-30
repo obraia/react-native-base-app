@@ -15,10 +15,10 @@ interface IProps extends BottomTabBarProps {
 const NavBar = ({ state, navigation, theme }: IProps) => {
 
   const items = [
-    { title: "Home", icon: HomeOutlined, page: "Home", color: theme.colors.primary },
-    { title: "Favorites", icon: HeartOutlined, page: "Favorites", color: theme.colors.primary },
-    { title: "Search", icon: SearchOutlined, page: "Search", color: theme.colors.primary },
-    { title: "Settings", icon: SettingsOutlined, page: "Settings", color: theme.colors.primary },
+    { title: "Home", icon: HomeOutlined, page: "HomeNavigator", color: theme.colors.primary },
+    { title: "Favorites", icon: HeartOutlined, page: "FavoritesNavigator", color: theme.colors.primary },
+    { title: "Search", icon: SearchOutlined, page: "SearchNavigator", color: theme.colors.primary },
+    { title: "Settings", icon: SettingsOutlined, page: "SettingsNavigator", color: theme.colors.primary },
   ];
 
   return (

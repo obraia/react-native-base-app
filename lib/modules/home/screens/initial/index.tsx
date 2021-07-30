@@ -1,10 +1,10 @@
 import React from "react";
 import { Container } from "./styles";
 
-const Home = () => {
+const Initial = () => {
   return (
     <Container></Container>
   );
 }
 
-export { Home }
+export { Initial }
