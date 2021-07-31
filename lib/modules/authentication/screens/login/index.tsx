@@ -5,9 +5,11 @@ import { useNavigation } from "@react-navigation/native";
 import { Button } from "../../../../shared/components/button";
 import { Input, IValidationInput } from "../../../../shared/components/input";
 import { Spacer } from "../../../../shared/components/spacer";
-import { Container, Body, Title } from "./styles";
+import { Container, Body, Title, Footer } from "./styles";
 import { Checkbox } from "../../../../shared/components/checkbox";
 import { RootState } from "../../../../store";
+import { RoundButton } from "../../components/round-button";
+import { GoogleColor } from "../../components/icons";
 
 const Login = () => {
   const { theme } = useSelector((state: RootState) => state.theme);
@@ -30,7 +32,7 @@ const Login = () => {
     console.log(username, password);
 
     if (isValid()) {
-      reset({ index: 0, routes: [{ name: 'Tabs' }] });
+      navigate('TwoFactor');
     } else {
       setUsernameValidation({ text: 'Invalid username', type: 'error' });
       setPasswordValidation({ text: 'Invalid password', type: 'error' });
@@ -99,21 +101,11 @@ const Login = () => {
         </Button>
       </Body>
 
-      {/* <Footer>
-        <Button
-          color='#006EFF'
-          outline
-          onPress={() => { }}>
-          Sign in
-        </Button>
-        <Spacer />
-        <Button
-          color='#FF5724'
-          outline
-          onPress={() => { }}>
-          Sign in
-        </Button>
-      </Footer> */}
+      <Footer>
+        <RoundButton onPress={() => { }}>
+          <GoogleColor />
+        </RoundButton>
+      </Footer>
 
     </Container>
   );

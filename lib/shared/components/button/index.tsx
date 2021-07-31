@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../../store";
 import { ButtonContainer, ButtonEffect, Title, Container } from "./styles";
 
-export type ButtonColors = 'primary' | 'secondary' | 'error' | 'warning' | 'info' | 'success';
+export type ButtonColors = 'primary' | 'secondary' | 'error' | 'warning' | 'info' | 'success' | 'background';
 
 interface IProps {
   children?: string;
@@ -23,7 +23,8 @@ const Button = (props: IProps) => {
     error: theme.colors['textError'],
     warning: theme.colors['textWarning'],
     info: theme.colors['textInfo'],
-    success: theme.colors['textSuccess']
+    success: theme.colors['textSuccess'],
+    background: theme.colors['textBackground']
   };
 
   console.log(theme.colors[props.type])

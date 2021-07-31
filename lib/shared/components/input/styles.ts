@@ -1,14 +1,15 @@
 import styled from 'styled-components/native';
 import { RectButton } from 'react-native-gesture-handler';
 import { lighten, transparentize } from 'polished';
+import { InputTypes } from '.';
 
 
 interface Props {
   color?: string;
+  type?: InputTypes;
 }
 
 export const Container = styled.View`
-
 `;
 
 export const InputGroup = styled.View`
@@ -21,12 +22,13 @@ export const TextInput = styled.TextInput<Props>`
   flex: 1;
   flex-basis: auto;
   height: 50px;
-  padding: 0 20px;
+  ${({ type }) => type === 'pin' ? 'aspect-ratio: 1' : ''};
+  ${({ textAlign }) => textAlign !== 'center' ? `padding: 0 20px` : ''};
+  ${({ theme, focusable }) => focusable ? `border: 2px solid ${theme.colors.textBackground}` : ''};
   ${({ color }) => color ? `border: 2px solid ${color}` : ''};
   border-radius: ${({ theme }) => theme.metrics.innerRadius}px;
   color: ${({ theme, color }) => color ? color : theme.colors.textBackground};
   background: ${({ theme, color }) => color ? transparentize(0.95, color) : lighten(0.05, theme.colors.background)};
-
 `;
 
 export const Button = styled(RectButton)`

@@ -1,12 +1,12 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
-import { BellOutlined, DatabaseSolid, InfoOutlined, PaletteOutlined } from '../../components/icons';
+import { RootState } from '../../../../store';
+import { BellOutlined, DatabaseSolid, InfoOutlined, LanguageSolid, PaletteOutlined } from '../../components/icons';
 import { Item } from '../../components/item';
 import { Profile } from '../../components/profile';
 import { Group } from '../../components/group';
 import { Container } from './styles';
-import { RootState } from '../../../../store';
 
 const Initial = () => {
   const { theme } = useSelector((state: RootState) => state.theme);
@@ -16,6 +16,12 @@ const Initial = () => {
     {
       title: 'Notifications',
       icon: BellOutlined,
+      page: 'Notifications',
+      color: theme.colors.primary
+    },
+    {
+      title: 'Languages',
+      icon: LanguageSolid,
       page: 'Notifications',
       color: theme.colors.primary
     },

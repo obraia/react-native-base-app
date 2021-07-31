@@ -7,6 +7,7 @@ import DownloadSolid from "./download-solid";
 import GlobeSolid from "./globe-solid";
 import HistorySolid from "./history-solid";
 import InfoOutlined from "./info-solid";
+import LanguageSolid from "./language-solid";
 import MobileSolid from "./mobile-solid";
 import NewsSolid from "./news-solid";
 import PaletteOutlined from "./palette-solid";
@@ -25,5 +26,6 @@ export {
   DatabaseDual,
   DownloadSolid,
   SyncSolid,
-  HistorySolid
+  HistorySolid,
+  LanguageSolid
 };

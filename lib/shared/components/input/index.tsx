@@ -6,7 +6,7 @@ import EyeOutlined from "../icons/eye-outlined";
 import EyeSlashOutlined from "../icons/eye-slash-outlined";
 import { Container, InputGroup, Label, Message, TextInput, Button } from "./styles";
 
-type InputTypes = "text" | "password" | "number" | "email" | "tel" | "url" | "search" | "date" | "time";
+export type InputTypes = "text" | "password" | "number" | "pin" | "email" | "tel" | "url" | "search" | "date" | "time";
 type MessageTypes = "error" | "info" | "success" | "warning";
 
 export interface IValidationInput {
@@ -15,16 +15,18 @@ export interface IValidationInput {
 }
 
 interface IProps {
-  name: string;
+  name?: string;
   message?: IValidationInput;
   type?: InputTypes;
   inputProps?: TextInputProps;
+  focusable?: boolean;
   onChangeText?: (text: string) => void;
 }
 
 const Input = forwardRef((props: IProps, ref: React.Ref<any>) => {
   const { theme } = useSelector((state: RootState) => state.theme);
   const [secureTextEntry, setSecureTextEntry] = useState(props.inputProps?.secureTextEntry);
+  const [focusable, setFocusable] = useState(props.focusable);
 
   const toggleSecureTextEntry = () => {
     setSecureTextEntry(!secureTextEntry);
@@ -37,13 +39,19 @@ const Input = forwardRef((props: IProps, ref: React.Ref<any>) => {
 
   return (
     <Container>
-      <Label color={getColor(props.message?.type)}>
-        {props.name}
-      </Label>
+      {props.name && (
+        <Label color={getColor(props.message?.type)}>
+          {props.name}
+        </Label>
+      )}
       <InputGroup>
         <TextInput {...props.inputProps}
           color={props.message?.type ? getColor(props.message?.type) : undefined}
           secureTextEntry={secureTextEntry}
+          onFocus={() => setFocusable(true)}
+          onBlur={() => setFocusable(false)}
+          focusable={focusable}
+          type={props.type}
           ref={ref} />
         {props.type === 'password' && (
           <Button onPress={toggleSecureTextEntry}>
@@ -53,9 +61,11 @@ const Input = forwardRef((props: IProps, ref: React.Ref<any>) => {
           </Button>
         )}
       </InputGroup>
-      <Message color={getColor(props.message?.type)}>
-        {props.message?.text}
-      </Message>
+      {props.message && (
+        <Message color={getColor(props.message?.type)}>
+          {props.message?.text}
+        </Message>
+      )}
     </Container>
   );
 });

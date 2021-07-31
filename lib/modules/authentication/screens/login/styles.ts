@@ -7,7 +7,6 @@ export const Container = styled.View`
 `;
 
 export const Body = styled.View`
-  flex: 1;
 `;
 
 export const Title = styled.Text`
@@ -17,6 +16,9 @@ export const Title = styled.Text`
 `;
 
 export const Footer = styled.View`
+  flex: 1;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
   padding: ${({ theme }) => theme.metrics.padding * 2}px;
 `;
