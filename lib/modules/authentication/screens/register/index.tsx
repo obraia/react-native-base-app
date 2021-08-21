@@ -35,7 +35,7 @@ const Register = () => {
     console.log(username, password);
 
     if (isValid()) {
-      navigate('Tabs')
+      navigate('TwoFactor');
     } else {
       setUsernameValidation({ text: 'Invalid username', type: 'error' });
       setPasswordValidation({ text: 'Invalid password', type: 'error' });

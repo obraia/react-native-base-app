@@ -6,7 +6,7 @@ import { Initial } from "../screens/initial/index";
 import { Register } from "../screens/register/index";
 import { Login } from "../screens/login";
 import { TwoFactor } from "../screens/twoFactor";
-import { Recovery } from "../screens/recovery";
+import { RecoveryNavigator } from "../screens/recovery/stacks";
 
 const Stack = createStackNavigator();
 
@@ -27,7 +27,7 @@ const AuthNavigator = () => {
       <Stack.Screen name="Register" component={Register} />
       <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="TwoFactor" component={TwoFactor} />
-      <Stack.Screen name="Recovery" component={Recovery} />
+      <Stack.Screen name="Recovery" component={RecoveryNavigator} />
     </Stack.Navigator>
   )
 }

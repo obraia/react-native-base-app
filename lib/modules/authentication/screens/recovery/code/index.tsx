@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
-import { InputPin } from "../../../../shared/components/inputPin";
-import { IKey, Keyboard } from "../../../../shared/components/keyboard";
-import { Button } from "../../../../shared/components/button";
+import { InputPin } from "../../../../../shared/components/inputPin";
+import { IKey, Keyboard } from "../../../../../shared/components/keyboard";
+import { Button } from "../../../../../shared/components/button";
 import { Container, Body, Title } from "./styles";
 
-const TwoFactor = () => {
+const RecoveryCode = () => {
   const { navigate, reset } = useNavigation();
 
   const [code, setCode] = useState('');
@@ -21,13 +21,13 @@ const TwoFactor = () => {
   }
 
   useEffect(() => {
-    if (code.length === 4) navigate('Tabs');
+    if (code.length === 4) navigate('NewPasword');
   }, [code])
 
   return (
     <Container>
       <Body>
-        <Title>Two factor validator</Title>
+        <Title>Verification code</Title>
 
         <InputPin value={code} />
         
@@ -41,4 +41,4 @@ const TwoFactor = () => {
   );
 }
 
-export { TwoFactor }
+export { RecoveryCode }

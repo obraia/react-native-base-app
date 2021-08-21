@@ -11,7 +11,7 @@ export const Body = styled.View`
 `;
 
 export const Title = styled.Text`
-  font-size: 36px;
+  font-size: 28px;
   font-weight: bold;
   color: ${({ theme }) => theme.colors.textBackground};
 `;

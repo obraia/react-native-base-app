@@ -2,14 +2,14 @@ import React, { useRef, useState } from "react";
 import { TextInput } from "react-native";
 import { useSelector } from "react-redux";
 import { useNavigation } from "@react-navigation/native";
-import { Button } from "../../../../shared/components/button";
-import { Input, IValidationInput } from "../../../../shared/components/input";
-import { Spacer } from "../../../../shared/components/spacer";
-import { Container, Body, Title, Footer } from "./styles";
-import { Checkbox } from "../../../../shared/components/checkbox";
 import { RootState } from "../../../../store";
+import { Input, IValidationInput } from "../../../../shared/components/input";
+import { Button } from "../../../../shared/components/button";
+import { Checkbox } from "../../../../shared/components/checkbox";
+import { Spacer } from "../../../../shared/components/spacer";
 import { RoundButton } from "../../components/round-button";
 import { GoogleColor } from "../../components/icons";
+import { Container, Body, Title, Footer } from "./styles";
 
 const Login = () => {
   const { theme } = useSelector((state: RootState) => state.theme);
@@ -71,8 +71,8 @@ const Login = () => {
           type='password'
           ref={passwordRef}
           inputProps={{
-            secureTextEntry: true,
             value: password,
+            secureTextEntry: true,
             onChangeText: setPassword,
             onSubmitEditing: handleSubmit
           }} />
@@ -96,13 +96,13 @@ const Login = () => {
 
         <Spacer />
 
-        <Button outline type='primary' onPress={handleSubmit}>
+        <Button outline type='primary' onPress={() => navigate('Recovery')}>
           Forgot password?
         </Button>
       </Body>
 
       <Footer>
-        <RoundButton onPress={() => { }}>
+        <RoundButton onPress={() => navigate('Pin')}>
           <GoogleColor />
         </RoundButton>
       </Footer>
