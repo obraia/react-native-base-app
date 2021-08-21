@@ -27,8 +27,6 @@ const Button = (props: IProps) => {
     background: theme.colors['textBackground']
   };
 
-  console.log(theme.colors[props.type])
-
   return (
     <Container>
       <ButtonContainer
